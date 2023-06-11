@@ -6,15 +6,19 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       
-    - name: List files in repository
-      run: ls -R $GITHUB_WORKSPACE
+      # Add other necessary build steps here
 
-    - name: Copy files via ssh
-      run: |
-        python3 $GITHUB_WORKSPACE/main.py
+      - name: Setup SSH key
+        run: |
+          echo "${{ secrets.SSH_KEY }}" > key
+          chmod 600 key
+
+      - name: Copy files via ssh
+        run: |
+          scp -i key main.py loco2@192.168.81.130:/home/loco2

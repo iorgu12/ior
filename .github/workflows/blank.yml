@@ -46,9 +46,9 @@ jobs:
     - name: Execute script on the VM
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+        host: 192.168.81.130
+        username: loco2
+        password: loco12
         script: |
           cd /home/poco
           cat >> coco

@@ -16,4 +16,6 @@ jobs:
         run: sudo apt-get install sshpass
 
       - name: Copy files
-        run: ./main.py
+        run: |
+         chmod +rwx main.py
+         ./main.py

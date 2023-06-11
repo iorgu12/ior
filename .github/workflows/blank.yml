@@ -17,4 +17,4 @@ jobs:
            password: loco12
            port: 22
            source: "main.py"
-           target: your_server_target_folder_path
+           target: /home/loco2

@@ -9,15 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Install sshpass
-        run: sudo apt-get install sshpass
-
-      - name: Copy files
-        run: |
-          python -m pip install --upgrade pip
-          pip install flask
-          chmod +rwx main.py
-          python3 main.py
+     - name: copy file via ssh password
+       uses: appleboy/scp-action@v0.1.4
+        with:
+           host: example.com
+           username: foo
+           password: bar
+           port: 22
+           source: "main.py"
+           target: your_server_target_folder_path

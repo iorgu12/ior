@@ -14,7 +14,7 @@ jobs:
 
       - name: Copy files via ssh
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
+          echo "${{ secrets.KEY }}" > private_key
           chmod 600 private_key
           scp -i private_key main.py loco2@192.168.81.130:/home/loco2
           rm private_key

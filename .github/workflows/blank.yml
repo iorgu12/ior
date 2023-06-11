@@ -49,7 +49,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         source: "./artifacts/scripts.zip"
-        target: "/home/loco2"
+        target: "/home/poco"
 
     - name: Execute script on the VM
       uses: appleboy/ssh-action@master

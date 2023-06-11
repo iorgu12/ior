@@ -2,8 +2,9 @@ name: Build and Deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -16,5 +17,4 @@ jobs:
       run: ls -R $GITHUB_WORKSPACE
 
     - name: Copy files via ssh
-      run: |
-        ls
+      run: ls

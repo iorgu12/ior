@@ -14,10 +14,6 @@ jobs:
       
       # Add other necessary build steps here
 
-      - name: Setup SSH key
-        run: |
-          echo "${{ secrets.KEY }}" > key
-          chmod 600 key
 
       - name: Copy files via ssh
         run: |

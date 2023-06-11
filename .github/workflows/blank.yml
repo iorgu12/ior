@@ -48,5 +48,12 @@ jobs:
     - name: Copy files via ssh
       run: |
         ls -la
+        cd ..
+        ls -la
+        cd ..
+        ls -la
+        cd .. 
+        ls -la
+      
         python3 $GITHUB_WORKSPACE/main.py
    

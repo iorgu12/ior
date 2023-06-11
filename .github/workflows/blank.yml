@@ -11,15 +11,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
-      # Add other necessary build steps here
-
-      - name: Setup SSH key
-        run: |
-          echo "${{ secrets.KEY }}" > key
-          chmod 600 key
 
       - name: Copy files via ssh
         run: |
-          cat key
-          cat main.py
+          chmod 600 key
+          scp -i key main.py loco2@192.168.81.130:/home/loco2

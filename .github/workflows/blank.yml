@@ -49,7 +49,7 @@ jobs:
         username: loco2
         password: loco12
         source: "./artifacts/scripts.zip"
-        target: "/path/to/deploy"
+        target: "/home/loco2"
 
     - name: Execute script on the VM
       uses: appleboy/ssh-action@master
@@ -58,7 +58,7 @@ jobs:
         username: loco2
         password: loco12
         script: |
-          cd /path/to/deploy
+          cd /home/loco2
           unzip scripts.zip
           python main.py   
    

@@ -50,5 +50,5 @@ jobs:
         username: loco2
         password: loco12
         port: 22
-        source: ./main.py
-        target: /home/loco2
+        source: './main.py'
+        target: '/home/loco2'

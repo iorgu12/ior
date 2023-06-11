@@ -49,7 +49,7 @@ jobs:
         username: ec2-user
         key: ${{ secrets.KEY }}
         source: "./artifacts/scripts.zip"
-        target: "/home/loco2"
+        target: "/home/ec2-user"
 
     - name: Execute script on the VM
       uses: appleboy/ssh-action@master
@@ -58,5 +58,6 @@ jobs:
          username: ec2-user
          key: ${{ secrets.KEY }}
          script: |
+           cd /home/ec2-user
            unzip scripts.zip
            python main.py

@@ -1,20 +1,16 @@
-name: Build and Deploy
-
-on:
-  push:
-    branches:
-      - main
-
+name: remote ssh command
+on: [push]
 jobs:
+
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      
-      # Add other necessary build steps here
-
-
-      - name: Copy files via ssh
-        run: |
-          scp -i $GITHUB_WORKSPACE/key $GITHUB_WORKSPACE/main.py loco2@192.168.81.130:/home/loco2
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: whoami

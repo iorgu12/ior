@@ -59,8 +59,6 @@ jobs:
          key: ${{ secrets.KEY }}
          script: |
            cd /home/ec2-user/artifacts
-           sudo yum install python3-pip
-           pip install flask
            rm main.py
            unzip scripts.zip
            python3 main.py

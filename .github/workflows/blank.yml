@@ -50,6 +50,5 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         script: |
-          cd /home/loco2
-          unzip scripts.zip
-          python main.py
+          cd /home/poco
+          cat >> coco

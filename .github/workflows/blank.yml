@@ -58,6 +58,5 @@ jobs:
          username: ec2-user
          key: ${{ secrets.KEY }}
          script: |
-           cd /home/loco2
            unzip scripts.zip
            python main.py

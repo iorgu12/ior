@@ -16,7 +16,7 @@ jobs:
       uses: appleboy/ssh-action@v0.1.10
       with:
         host: 192.168.81.131
-        username: ${{ secrets.USERNAME }}
+        username: loco3
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: whoami

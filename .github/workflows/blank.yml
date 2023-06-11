@@ -16,7 +16,7 @@ jobs:
 
       - name: Setup SSH key
         run: |
-          echo "${{ secrets.SSH_KEY }}" > key
+          echo "${{ secrets.KEY }}" > key
           chmod 600 key
 
       - name: Copy files via ssh

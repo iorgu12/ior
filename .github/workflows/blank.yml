@@ -6,31 +6,14 @@ on:
       - main
 
 jobs:
-  deploy:
-    name: deploy artifact
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: checkout
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - run: echo hello > world.txt
+      - name: Install sshpass
+        run: sudo apt-get install sshpass
 
-    - uses: actions/upload-artifact@v3
-      with:
-        name: my-artifact
-        path: world.txt
-
-    - uses: actions/download-artifact@v3
-      with:
-        name: my-artifact
-        path: distfiles
-
-    - name: copy file to server
-      uses: appleboy/scp-action@v0.1.4
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
-        port: ${{ secrets.PORT }}
-        source: distfiles/*
-        target: your_server_target_folder_path
+      - name: Copy files
+        run: ./main.py

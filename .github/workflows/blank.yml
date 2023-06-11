@@ -41,24 +41,23 @@ jobs:
       with:
         name: scripts
         path: ./artifacts
-        
+
     - name: Copy files via ssh
       uses: appleboy/scp-action@master
       with:
-        host: '192.168.81.130'
-        username: 'loco2'
-        password: 'loco12'
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
         source: "./artifacts/scripts.zip"
         target: "/home/loco2"
 
     - name: Execute script on the VM
       uses: appleboy/ssh-action@master
       with:
-        host: 192.168.81.130
-        username: loco2
-        password: loco12
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
         script: |
           cd /home/loco2
           unzip scripts.zip
-          python main.py   
-   
+          python main.py

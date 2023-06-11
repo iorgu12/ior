@@ -47,6 +47,6 @@ jobs:
     
     - name: Copy files via ssh
       run: |
-        ls
-        python3 main.py
+        ls -la
+        python3 $GITHUB_WORKSPACE/main.py
    

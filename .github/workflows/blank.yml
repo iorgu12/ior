@@ -58,6 +58,6 @@ jobs:
          username: ec2-user
          key: ${{ secrets.KEY }}
          script: |
-           cd /home/ec2-user
+           cd /home/ec2-user/artifacts
            unzip scripts.zip
            python3 main.py

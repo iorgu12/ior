@@ -60,4 +60,4 @@ jobs:
          script: |
            cd /home/ec2-user
            unzip scripts.zip
-           python main.py
+           python3 main.py
